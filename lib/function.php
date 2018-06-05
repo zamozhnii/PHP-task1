@@ -8,9 +8,11 @@ function uploadFiles($arr, $dir) {
 		$tmp_name = $arr[TMP_NAME];
 		$name = basename($arr[NAME]);
 		$size = $arr[SIZE];
-		return move_uploaded_file($tmp_name, $dir . '/' . $name);
+		move_uploaded_file($tmp_name, $dir . '/' . $name);
+		return chmod($dir . '/' . $name, 0777);
 	}
 }
+
 
 function getAllFiles($dir) {
 	$result = [];
@@ -35,7 +37,13 @@ function deleteFile($dir, $name) {
 	}
 }
 
-
+function checkSize($size) {
+	if($size > 1000) {
+		return $size/1000 . 'kB';
+	} else {
+		return $size . 'B';
+	}
+}
 
 
 

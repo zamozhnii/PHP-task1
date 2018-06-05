@@ -21,14 +21,14 @@
 	<tr>
 		<td><?=$id?></td>
 		<td><?=$file['name']?></td>
-		<td><?=$file['size']/1000 . 'kB'?></td>
+		<td><?=checkSize($file['size']) ?></td>
 		<td><a href="index.php?name=<?=$file['name']?>">DELETE</a></td>
 	<tr>
 <?php
 	$id++;
 }
 ?>
-	
+
 </table>
 <?php
 	}
