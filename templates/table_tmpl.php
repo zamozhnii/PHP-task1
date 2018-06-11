@@ -4,7 +4,7 @@
 
 
 	$files = getAllFiles(MY_DIR);
-	if(count($files)>0) {
+	if($files != false) {
 ?>
 
 <table>
